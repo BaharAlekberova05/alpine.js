@@ -42,8 +42,12 @@
       <div class="form-field password">
         <label>
           <span>Password:</span>
-          <input type="password" x-model="password" />
+          <input :type="showPass ? 'text' : 'password'" x-model="password" />
         </label>
+
+        <button type="button" @click="showPass =! showPass">
+          <span x-text="showPass ? 'Hide' : 'Show'"></span>
+        </button>
       </div>
 
       <!-- confirm password -->

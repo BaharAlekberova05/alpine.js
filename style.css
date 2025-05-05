@@ -70,7 +70,7 @@ input[type="checkbox"] {
 .form-field.password {
   position: relative;
 
-  button {
+  & button {
     position: absolute;
     top: 36px;
     right: 6px;
@@ -81,7 +81,7 @@ input[type="checkbox"] {
     padding: 4px;
     cursor: pointer;
   }
-  input {
+  & input {
     padding-right: 50px;
   }
 }
