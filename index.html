@@ -106,6 +106,13 @@
 
       <!-- submit button -->
       <button type="submit">Submit</button>
+
+      <div class="overlay" x-show="success" x-cloak x-transition.opacity.duration.500ms>
+        <div class="modal">
+          <h2>Thank you!</h2>
+          <button type="button" @click="success = false">Close</button>
+        </div>
+      </div>
     </form>
   </body>
 </html>

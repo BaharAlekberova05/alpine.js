@@ -1,3 +1,18 @@
 Looping - 
 x-for=" num in numbers "
 x-for MUST be declared on a <template> element. That <template> element MUST contain only one root element
+
+---------------------------------------------------------------
+
+X-SHOW - Görünürlük sadece CSS display özelliği ile değiştirilir. Yani, öğe DOM'dan kaldırılmaz, sadece gizlenir.
+
+Performans: Öğenin her zaman DOM'da olması nedeniyle, öğe yüklenir ve sayfa kaynağında bulunur. Yalnızca görünürlüğü değişir.
+
+---------------------------------------------------------
+
+X-IF, öğeyi DOM'dan ekler veya DOM'dan kaldırır. Yani, öğe sadece koşul sağlandığında var olur.
+
+Performans: x-if kullanıldığında öğe, koşul sağlanmadığında tamamen DOM'dan silinir ve yeniden render edilmesi gerektiğinde yeniden oluşturulur.
+
+--------------------------------------------------------------
+X-CLOAK - alpine sehife yuklenende gorunmemesi gereken oge-leri gizleyir. meselen, eger bir modal varsa, X-CLOAK yazanda hemin oge-nin ilk basda gorunmesinin qarsini alir, sehife yuklenende bosuna ekrana cixmir!
