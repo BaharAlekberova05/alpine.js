@@ -12,17 +12,6 @@
     <script src="./script.js"></script>
   </head>
   <body>
-    <!-- <div x-data="counter">
-      <button @click="count--" :disabled="count === 0">Decrement</button>
-
-      <span x-text="count"></span>
-      <span x-text="name"></span>
-
-      <button @click="count++">Increment</button>
-
-      <button @click="logCount">Log</button>
-    </div> -->
-
     <form x-data="signupForm" @submit.prevent="submitForm">
       <h1>Ninja Signup Form</h1>
 
@@ -36,6 +25,10 @@
           <span></span>Username:
           <input type="text" maxlength="15" x-model="username" />
         </label>
+
+        <template x-if="errors.username">
+          <p class="error" x-text="errors.username"></p>
+        </template>
       </div>
 
       <!-- password -->
@@ -48,6 +41,10 @@
         <button type="button" @click="showPass =! showPass">
           <span x-text="showPass ? 'Hide' : 'Show'"></span>
         </button>
+
+        <template x-if="errors.password">
+          <p class="error" x-text="errors.password"></p>
+        </template>
       </div>
 
       <!-- confirm password -->
@@ -56,6 +53,10 @@
           <span>Confirm Password:</span>
           <input type="password" x-model="passwordConfirm" />
         </label>
+
+        <template x-if="errors.passwordConfirm">
+          <p class="error" x-text="errors.passwordConfirm"></p>
+        </template>
       </div>
 
       <!-- belt color -->
@@ -64,13 +65,15 @@
           >Belt Color:
           <select x-model="belt">
             <option value="">Select a belt</option>
-            <option value="black">Black</option>
-            <option value="white">White</option>
-            <option value="red">Red</option>
-            <option value="orange">Orange</option>
-            <option value="brown">Brown</option>
+            <template x-for="(choice, index) in beltChoices" :key="index">
+              <option :value="choice" x-text="choice"></option>
+            </template>
           </select>
         </label>
+
+        <template x-if="errors.belt">
+          <p class="error" x-text="errors.belt"></p>
+        </template>
       </div>
 
       <!-- short bio -->
@@ -83,6 +86,10 @@
           <span>Short Bio:</span>
           <textarea maxlength="100" x-model="bio"></textarea>
         </label>
+
+        <template x-if="errors.bio">
+          <p class="error" x-text="errors.bio"></p>
+        </template>
       </div>
 
       <!-- newsletter signup -->
@@ -91,6 +98,10 @@
           <input type="checkbox" x-model="newsletter" />
           <span>Sign up for the newsletter</span>
         </label>
+
+        <template x-if="errors.newsletter">
+          <p class="error" x-text="errors.newsletter"></p>
+        </template>
       </div>
 
       <!-- submit button -->
